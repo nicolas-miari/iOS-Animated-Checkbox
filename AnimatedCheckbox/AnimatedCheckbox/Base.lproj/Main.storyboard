@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AnimatedCheckbox" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qxR-n7-ZUA" customClass="Checkbox" customModule="AnimatedCheckbox" customModuleProvider="target">
+                                <rect key="frame" x="93.5" y="323.5" width="188" height="40"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isRound" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Dummy Checkbox"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jrj-7g-ES0" customClass="Checkbox" customModule="AnimatedCheckbox" customModuleProvider="target">
+                                <rect key="frame" x="65.5" y="382" width="244" height="40"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isRound" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Enable Dummy Checkbox"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="checkboxChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="z7n-AA-hWe"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="qxR-n7-ZUA" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="JRK-Ta-UGU"/>
+                            <constraint firstItem="qxR-n7-ZUA" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="TAR-cG-5DA"/>
+                            <constraint firstItem="Jrj-7g-ES0" firstAttribute="centerX" secondItem="qxR-n7-ZUA" secondAttribute="centerX" id="gcd-ue-Q8L"/>
+                            <constraint firstItem="Jrj-7g-ES0" firstAttribute="top" secondItem="qxR-n7-ZUA" secondAttribute="bottom" constant="18.5" id="j3I-VZ-abg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="dummyCheckbox" destination="qxR-n7-ZUA" id="4q0-Ag-RPo"/>
+                        <outlet property="enableDummyCheckbox" destination="Jrj-7g-ES0" id="guk-6x-Xgd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
