@@ -27,7 +27,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HEX-dh-8zf" customClass="Checkbox" customModule="AnimatedCheckbox" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HEX-dh-8zf" customClass="Checkbox" customModule="AnimatedCheckbox" customModuleProvider="target">
                                                     <rect key="frame" x="16" y="15" width="40" height="40"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -54,7 +54,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SIz-Tj-Hlr" customClass="Checkbox" customModule="AnimatedCheckbox" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SIz-Tj-Hlr" customClass="Checkbox" customModule="AnimatedCheckbox" customModuleProvider="target">
                                                     <rect key="frame" x="16" y="15" width="178.5" height="40"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -77,7 +77,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pJp-DN-k2l" customClass="Checkbox" customModule="AnimatedCheckbox" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pJp-DN-k2l" customClass="Checkbox" customModule="AnimatedCheckbox" customModuleProvider="target">
                                                     <rect key="frame" x="16" y="15" width="168" height="40"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -103,7 +103,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LDa-cC-srD" customClass="Checkbox" customModule="AnimatedCheckbox" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LDa-cC-srD" customClass="Checkbox" customModule="AnimatedCheckbox" customModuleProvider="target">
                                                     <rect key="frame" x="16" y="15" width="217.5" height="40"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -129,7 +129,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vIi-bX-kH8" customClass="Checkbox" customModule="AnimatedCheckbox" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vIi-bX-kH8" customClass="Checkbox" customModule="AnimatedCheckbox" customModuleProvider="target">
                                                     <rect key="frame" x="16" y="15" width="183" height="40"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -157,7 +157,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z61-Du-eFm" customClass="Checkbox" customModule="AnimatedCheckbox" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z61-Du-eFm" customClass="Checkbox" customModule="AnimatedCheckbox" customModuleProvider="target">
                                                     <rect key="frame" x="16" y="15" width="92" height="40"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -182,12 +182,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b2R-Fa-K2m" customClass="Checkbox" customModule="AnimatedCheckbox" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b2R-Fa-K2m" customClass="Checkbox" customModule="AnimatedCheckbox" customModuleProvider="target">
                                                     <rect key="frame" x="16" y="15" width="156" height="40"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Superellipsoid"/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Superellipse"/>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="leftTitle" value="NO"/>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="radio" value="YES"/>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="overcheck" value="YES"/>

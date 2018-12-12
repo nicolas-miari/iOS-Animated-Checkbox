@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1F705B3C21C0C7E5003DFEFB /* UIBezierPath+Superellipsoid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F705B3B21C0C7E5003DFEFB /* UIBezierPath+Superellipsoid.swift */; };
+		1F705B4721C0FACE003DFEFB /* SuperellipseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F705B4621C0FACE003DFEFB /* SuperellipseViewController.swift */; };
+		1F705B4921C0FBCD003DFEFB /* Superellipse.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F705B4821C0FBCD003DFEFB /* Superellipse.storyboard */; };
 		1FE468BE21C0A87700365141 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE468BD21C0A87700365141 /* GalleryViewController.swift */; };
 		1FE5F0EB21BF9FC40085F7EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE5F0EA21BF9FC40085F7EA /* AppDelegate.swift */; };
 		1FE5F0F021BF9FC40085F7EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FE5F0EE21BF9FC40085F7EA /* Main.storyboard */; };
@@ -22,6 +24,8 @@
 		1F705B3E21C0D2CC003DFEFB /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		1F705B4121C0D311003DFEFB /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ja; path = ja.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1F705B4421C0D43D003DFEFB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1F705B4621C0FACE003DFEFB /* SuperellipseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperellipseViewController.swift; sourceTree = "<group>"; };
+		1F705B4821C0FBCD003DFEFB /* Superellipse.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Superellipse.storyboard; sourceTree = "<group>"; };
 		1FE468BD21C0A87700365141 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		1FE5F0E721BF9FC40085F7EA /* AnimatedCheckbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimatedCheckbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FE5F0EA21BF9FC40085F7EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +48,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F705B4A21C10EED003DFEFB /* Superellispe_Testing */ = {
+			isa = PBXGroup;
+			children = (
+				1F705B4621C0FACE003DFEFB /* SuperellipseViewController.swift */,
+				1F705B4821C0FBCD003DFEFB /* Superellipse.storyboard */,
+			);
+			path = Superellispe_Testing;
+			sourceTree = "<group>";
+		};
+		1F705B4B21C10EFF003DFEFB /* Supporting_Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1F705B3B21C0C7E5003DFEFB /* UIBezierPath+Superellipsoid.swift */,
+				1FE5F0FE21BFCA760085F7EA /* UIColor+Extensions.swift */,
+			);
+			path = Supporting_Extensions;
+			sourceTree = "<group>";
+		};
 		1FE5F0DE21BF9FC40085F7EA = {
 			isa = PBXGroup;
 			children = (
@@ -64,13 +86,13 @@
 			isa = PBXGroup;
 			children = (
 				1FE5F0EA21BF9FC40085F7EA /* AppDelegate.swift */,
-				1FE468BD21C0A87700365141 /* GalleryViewController.swift */,
 				1FE5F0FC21BFA0120085F7EA /* Checkbox.swift */,
-				1F705B3B21C0C7E5003DFEFB /* UIBezierPath+Superellipsoid.swift */,
-				1FE5F0FE21BFCA760085F7EA /* UIColor+Extensions.swift */,
+				1FE468BD21C0A87700365141 /* GalleryViewController.swift */,
+				1F705B4B21C10EFF003DFEFB /* Supporting_Extensions */,
+				1F705B4A21C10EED003DFEFB /* Superellispe_Testing */,
+				1FE5F0F321BF9FC70085F7EA /* LaunchScreen.storyboard */,
 				1FE5F0EE21BF9FC40085F7EA /* Main.storyboard */,
 				1FE5F0F121BF9FC70085F7EA /* Assets.xcassets */,
-				1FE5F0F321BF9FC70085F7EA /* LaunchScreen.storyboard */,
 				1FE5F0F621BF9FC70085F7EA /* Info.plist */,
 			);
 			path = AnimatedCheckbox;
@@ -138,6 +160,7 @@
 				1FE5F0F521BF9FC70085F7EA /* LaunchScreen.storyboard in Resources */,
 				1FE5F0F221BF9FC70085F7EA /* Assets.xcassets in Resources */,
 				1FE5F0F021BF9FC40085F7EA /* Main.storyboard in Resources */,
+				1F705B4921C0FBCD003DFEFB /* Superellipse.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,6 +171,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F705B4721C0FACE003DFEFB /* SuperellipseViewController.swift in Sources */,
 				1FE5F0EB21BF9FC40085F7EA /* AppDelegate.swift in Sources */,
 				1FE468BE21C0A87700365141 /* GalleryViewController.swift in Sources */,
 				1FE5F0FD21BFA0120085F7EA /* Checkbox.swift in Sources */,

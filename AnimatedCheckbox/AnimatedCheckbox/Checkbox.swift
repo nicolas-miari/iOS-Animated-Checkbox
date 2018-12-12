@@ -80,10 +80,10 @@ class Checkbox: UIControl {
 
     @IBInspectable var ellipsoid: Bool {
         set {
-            self.style = newValue ? .superellipsoid : .square
+            self.style = newValue ? .superellipse : .square
         }
         get {
-            return style == .superellipsoid
+            return style == .superellipse
         }
     }
 
@@ -114,7 +114,7 @@ class Checkbox: UIControl {
     enum Style {
         case square
         case circle
-        case superellipsoid
+        case superellipse
     }
 
     var style: Style = .square {
@@ -174,7 +174,7 @@ class Checkbox: UIControl {
     }
 
     // The corner radius of the checkbox. For radio button, it equals sideLength/2.
-    private var cornerRadius: CGFloat = 9
+    private var cornerRadius: CGFloat = 6
 
     // The color of the filled (checked) backgrond, when highlighted (about to deselect).
     private var adjustedTintColor: UIColor! {
@@ -372,15 +372,15 @@ class Checkbox: UIControl {
     private func updatePaths() {
         switch style {
         case .square:
-            frameLayer.path = CGPath(roundedRect: frameLayer.bounds, cornerWidth: 9, cornerHeight: 9, transform: nil)
-            fillLayer.path = CGPath(roundedRect: fillLayer.bounds, cornerWidth: 9, cornerHeight: 9, transform: nil)
+            frameLayer.path = CGPath(roundedRect: frameLayer.bounds, cornerWidth: cornerRadius, cornerHeight: cornerRadius, transform: nil)
+            fillLayer.path = CGPath(roundedRect: fillLayer.bounds, cornerWidth: cornerRadius, cornerHeight: cornerRadius, transform: nil)
         case .circle:
             frameLayer.path = CGPath(ellipseIn: frameLayer.bounds, transform: nil)
             fillLayer.path = CGPath(ellipseIn: fillLayer.bounds, transform: nil)
 
-        case .superellipsoid:
-            frameLayer.path = UIBezierPath.superellipsoid(in: frameLayer.bounds).cgPath
-            fillLayer.path = UIBezierPath.superellipsoid(in: fillLayer.bounds).cgPath
+        case .superellipse:
+            frameLayer.path = UIBezierPath.superellipse(in: frameLayer.bounds, cornerRadius: 15).cgPath
+            fillLayer.path = UIBezierPath.superellipse(in: frameLayer.bounds, cornerRadius: 15).cgPath
         }
     }
 
