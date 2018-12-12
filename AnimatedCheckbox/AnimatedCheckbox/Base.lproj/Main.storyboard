@@ -1,57 +1,216 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Opj-Pr-VfQ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Checkbox Gallery-->
+        <scene sceneID="A5x-ao-vFs">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AnimatedCheckbox" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <tableViewController id="Zru-6K-XFy" customClass="GalleryViewController" customModule="AnimatedCheckbox" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="sJt-ft-IXH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qxR-n7-ZUA" customClass="Checkbox" customModule="AnimatedCheckbox" customModuleProvider="target">
-                                <rect key="frame" x="93.5" y="323.5" width="188" height="40"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isRound" value="NO"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Dummy Checkbox"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jrj-7g-ES0" customClass="Checkbox" customModule="AnimatedCheckbox" customModuleProvider="target">
-                                <rect key="frame" x="65.5" y="382" width="244" height="40"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isRound" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Enable Dummy Checkbox"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="checkboxChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="z7n-AA-hWe"/>
-                                </connections>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="qxR-n7-ZUA" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="JRK-Ta-UGU"/>
-                            <constraint firstItem="qxR-n7-ZUA" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="TAR-cG-5DA"/>
-                            <constraint firstItem="Jrj-7g-ES0" firstAttribute="centerX" secondItem="qxR-n7-ZUA" secondAttribute="centerX" id="gcd-ue-Q8L"/>
-                            <constraint firstItem="Jrj-7g-ES0" firstAttribute="top" secondItem="qxR-n7-ZUA" secondAttribute="bottom" constant="18.5" id="j3I-VZ-abg"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                    <connections>
-                        <outlet property="dummyCheckbox" destination="qxR-n7-ZUA" id="4q0-Ag-RPo"/>
-                        <outlet property="enableDummyCheckbox" destination="Jrj-7g-ES0" id="guk-6x-Xgd"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="No Title" id="zHt-3Y-JGB">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="70" id="QHQ-u9-o4v">
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QHQ-u9-o4v" id="9ec-Lq-hY9">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HEX-dh-8zf" customClass="Checkbox" customModule="AnimatedCheckbox" customModuleProvider="target">
+                                                    <rect key="frame" x="16" y="15" width="40" height="40"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="HEX-dh-8zf" firstAttribute="centerY" secondItem="9ec-Lq-hY9" secondAttribute="centerY" id="9VB-BC-QmF"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="HEX-dh-8zf" secondAttribute="leading" id="vMa-3u-sJL"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Left Title" id="Rl2-ob-hUi">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="LGB-HQ-4NC">
+                                        <rect key="frame" x="0.0" y="181.5" width="375" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LGB-HQ-4NC" id="xaa-NR-pXH">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pJp-DN-k2l" customClass="Checkbox" customModule="AnimatedCheckbox" customModuleProvider="target">
+                                                    <rect key="frame" x="16" y="15" width="196.5" height="40"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Left Title Checkbox"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="leadingMargin" secondItem="pJp-DN-k2l" secondAttribute="leading" id="7Gf-M1-mc0"/>
+                                                <constraint firstItem="pJp-DN-k2l" firstAttribute="centerY" secondItem="xaa-NR-pXH" secondAttribute="centerY" id="x5L-8e-ktc"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Right Title" id="wWE-mD-c6d">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="TY2-xX-lVl">
+                                        <rect key="frame" x="0.0" y="307.5" width="375" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TY2-xX-lVl" id="6tK-Ej-eMj">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SIz-Tj-Hlr" customClass="Checkbox" customModule="AnimatedCheckbox" customModuleProvider="target">
+                                                    <rect key="frame" x="16" y="15" width="206.5" height="40"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Right Title Checkbox"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="leftTitle" value="NO"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="SIz-Tj-Hlr" firstAttribute="centerY" secondItem="6tK-Ej-eMj" secondAttribute="centerY" id="1kS-wd-jTI"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="SIz-Tj-Hlr" secondAttribute="leading" id="wAf-jx-Kgh"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Fixed Border Color" id="pG2-mp-neM">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="lDF-Vx-iMk">
+                                        <rect key="frame" x="0.0" y="433.5" width="375" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lDF-Vx-iMk" id="JuZ-Xz-ob1">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bqZ-1v-MbW" customClass="Checkbox" customModule="AnimatedCheckbox" customModuleProvider="target">
+                                                    <rect key="frame" x="16" y="15" width="271.5" height="40"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Fixed Border Color Checkbox"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="leftTitle" value="NO"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="leadingMargin" secondItem="bqZ-1v-MbW" secondAttribute="leading" id="9gg-zl-WRd"/>
+                                                <constraint firstItem="bqZ-1v-MbW" firstAttribute="centerY" secondItem="JuZ-Xz-ob1" secondAttribute="centerY" id="JsV-bM-Ani"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Changing Border Color" id="Gnp-5g-zdh">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="gGG-VP-mbU">
+                                        <rect key="frame" x="0.0" y="559.5" width="375" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gGG-VP-mbU" id="ohH-zP-FBr">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LDa-cC-srD" customClass="Checkbox" customModule="AnimatedCheckbox" customModuleProvider="target">
+                                                    <rect key="frame" x="16" y="15" width="271.5" height="40"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Changing Border Color Checkbox"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="leftTitle" value="NO"/>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="onBorder">
+                                                            <color key="value" red="1" green="0.70196078429999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Round" id="rfu-Tu-M0E">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="GVj-UE-v6g">
+                                        <rect key="frame" x="0.0" y="685.5" width="375" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GVj-UE-v6g" id="ipi-Gd-5ey">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z61-Du-eFm" customClass="Checkbox" customModule="AnimatedCheckbox" customModuleProvider="target">
+                                                    <rect key="frame" x="16" y="15" width="206.5" height="40"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Right Title Checkbox"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="leftTitle" value="NO"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="radio" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="leadingMargin" secondItem="z61-Du-eFm" secondAttribute="leading" id="AyX-lN-a9Q"/>
+                                                <constraint firstItem="z61-Du-eFm" firstAttribute="centerY" secondItem="ipi-Gd-5ey" secondAttribute="centerY" id="oU5-59-at6"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="IjI-Iw-bNp">
+                                <cells/>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="Zru-6K-XFy" id="Js6-bo-9Co"/>
+                            <outlet property="delegate" destination="Zru-6K-XFy" id="sGw-lU-AfA"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Checkbox Gallery" id="DWZ-dR-W9P"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="1000"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jmX-22-Ifm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1540" y="26.986506746626688"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="yo4-KC-LNj">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Opj-Pr-VfQ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Fv1-bb-gED">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Zru-6K-XFy" kind="relationship" relationship="rootViewController" id="CAJ-co-vd6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a5k-LA-cll" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="704.79999999999995" y="26.53673163418291"/>
         </scene>
     </scenes>
 </document>

@@ -16,7 +16,7 @@ import UIKit
 @IBDesignable
 class Checkbox: UIControl {
 
-    // MARK: - Configuration
+    // MARK: - Configuration (Interfce Builder)
 
     @IBInspectable var title: String = "" {
         didSet {
@@ -25,20 +25,132 @@ class Checkbox: UIControl {
         }
     }
 
-    @IBInspectable var font: UIFont = UIFont.systemFont(ofSize: 17)
+    @IBInspectable var textColor: UIColor = .darkGray {
+        didSet {
+            titleLabel.textColor = textColor
+        }
+    }
+
+    @IBInspectable var offBorder: UIColor {
+        set {
+            normalBorderColor = newValue
+        }
+        get {
+            return normalBorderColor
+        }
+    }
+
+    @IBInspectable var onBorder: UIColor {
+        set {
+            self.selectedBorderColor = newValue
+        }
+        get {
+            return selectedBorderColor
+        }
+    }
+
+    /// If true, the title label is placed left of the checkbox; otherwise, it
+    /// is placed to the right.
+    @IBInspectable var leftTitle: Bool {
+        set {
+            self.titlePosition = newValue ? .left : .right
+        }
+        get {
+            return titlePosition == .left
+        }
+    }
+
+    @IBInspectable var radio: Bool {
+        set {
+            self.style = newValue ? .radioButton : .checkbox
+        }
+        get {
+            return style == .radioButton
+        }
+    }
+
+    // MARK: - Configuration (Programmatic)
+
+    /// Color of the checkbox's outline when unchecked.
+    var normalBorderColor: UIColor = .lightGray {
+        didSet {
+            if !isSelected {
+                frameLayer.borderColor = normalBorderColor.cgColor
+            }
+        }
+    }
+
+    /// Color of the checkbox's outline when checked.
+    var selectedBorderColor: UIColor = .lightGray {
+        didSet {
+            if isSelected {
+                frameLayer.borderColor = selectedBorderColor.cgColor
+            }
+        }
+    }
+
+    /// Font used in the title label.
+    var font: UIFont = UIFont.systemFont(ofSize: 17)
+
+    enum Style {
+        case checkbox
+        case radioButton
+    }
+
+    var style: Style = .checkbox {
+        didSet {
+            if style == .radioButton {
+                print("RADIO")
+            }
+            frameLayer.cornerRadius = cornerRadius
+            fillLayer.cornerRadius = cornerRadius
+        }
+    }
+
+    enum TitlePosition {
+        case left
+        case right
+    }
+
+    var titlePosition: TitlePosition = .left {
+        didSet {
+            updateComponentFrames()
+        }
+    }
 
     // MARK: - Internal Structure
 
+    // Displayes the optional title.
     private let titleLabel: UILabel
 
+    // Displayes the outline of the unchecked box or radio button.
     private var frameLayer: CALayer!
 
+    // Displays the fill color and checkmark of the checked box or radio button.
     private var fillLayer: CALayer!
 
+    // When checked, fill and checkmark fade in while growing from this scale
+    // factor to full size (1.0).
     private let shrinkingFactor: CGFloat = 0.5
 
-    private var boxSize: CGSize = CGSize(width: 40, height: 40)
+    // The side length of the checkbox (or diameter of the radio button), in points.
+    private let sideLength: CGFloat = 40
 
+    private var boxSize: CGSize {
+        return CGSize(width: sideLength, height: sideLength)
+    }
+
+    // The corner radius of the checkbox. For radio button, it equals sideLength/2.
+    private var cornerRadius: CGFloat {
+        switch style {
+        case .checkbox:
+            return 9
+        case .radioButton:
+            return sideLength / 2
+        }
+    }
+
+    // The color of the filled (checked) backgrond, when highlighted (about to deselect).
     private var adjustedTintColor: UIColor! {
         return tintColor.darkened(byPercentage: 0.2)
     }
@@ -46,11 +158,12 @@ class Checkbox: UIControl {
     // MARK: - UIView
 
     override var tintColor: UIColor! {
-        set {
-        }
-        get {
-            // (Color-picked from macOS checkbox)
-            return UIColor(displayP3Red: 86.0/255.0, green: 151.0/255.0, blue: 245.0/255.0, alpha: 1)
+        didSet {
+            if isHighlighted {
+                fillLayer.backgroundColor = adjustedTintColor.cgColor
+            } else {
+                fillLayer.backgroundColor = tintColor.cgColor
+            }
         }
     }
 
@@ -103,9 +216,11 @@ class Checkbox: UIControl {
     override var isSelected: Bool {
         didSet {
             if isSelected {
+                frameLayer.borderColor = selectedBorderColor.cgColor
                 fillLayer.opacity = 1
                 fillLayer.transform = CATransform3DIdentity
             } else {
+                frameLayer.borderColor = normalBorderColor.cgColor
                 fillLayer.opacity = 0
                 fillLayer.transform = CATransform3DMakeScale(shrinkingFactor, shrinkingFactor, 1)
             }
@@ -157,6 +272,8 @@ class Checkbox: UIControl {
 
     private func configureComponents() {
 
+        self.clipsToBounds = false
+
         titleLabel.text = title
         titleLabel.font = font
         titleLabel.textColor = UIColor.darkGray
@@ -164,18 +281,21 @@ class Checkbox: UIControl {
 
         // Rounded gray frame (uncheked state)
         self.frameLayer = CALayer()
-        frameLayer.cornerRadius = 9
+        frameLayer.bounds = CGRect(origin: .zero, size: boxSize)
+        frameLayer.cornerRadius = cornerRadius
         frameLayer.borderWidth = 2
         frameLayer.borderColor = UIColor.lightGray.cgColor
         self.layer.addSublayer(frameLayer)
 
         // Rounded blue square (checked state)
         self.fillLayer = CALayer()
+        fillLayer.bounds = CGRect(origin: .zero, size: boxSize)
         fillLayer.backgroundColor = tintColor.cgColor
-        fillLayer.cornerRadius = 9
+        fillLayer.cornerRadius = cornerRadius
         fillLayer.opacity = 0
         fillLayer.transform = CATransform3DMakeScale(shrinkingFactor, shrinkingFactor, 1)
-        self.layer.addSublayer(fillLayer)
+        //self.layer.addSublayer(fillLayer)
+        self.layer.insertSublayer(fillLayer, at: 0)
 
         // White Tick (checked state)
         let tickPath = UIBezierPath()
@@ -195,28 +315,48 @@ class Checkbox: UIControl {
         tickLayer.shadowOffset = CGSize(width: 0, height: 2)
         tickLayer.shadowRadius = 1
         fillLayer.addSublayer(tickLayer)
+
+        updateComponentFrames()
     }
 
     private func updateComponentFrames() {
-        let size = intrinsicContentSize
 
-        // Label: to the left, centered vertically
         titleLabel.sizeToFit()
+        guard frameLayer != nil else {
+            return
+        }
+
+        let size = intrinsicContentSize
         let labelBounds = titleLabel.bounds
-        let labelOrigin = CGPoint(x: 0, y: round((size.height - labelBounds.height)/2))
-        let labelFrame = CGRect(origin: labelOrigin, size: labelBounds.size)
-        titleLabel.frame = labelFrame
+        let innerMargin: CGFloat = labelBounds.width > 0 ? 8 : 0
 
-        let innerMargin: CGFloat = labelFrame.width > 0 ? 8 : 0
+        switch titlePosition {
+        case .left:
+            // Label: to the left, centered vertically
+            let labelOrigin = CGPoint(x: 0, y: round((size.height - labelBounds.height)/2))
+            let labelFrame = CGRect(origin: labelOrigin, size: labelBounds.size)
+            titleLabel.frame = labelFrame
 
-        let boxOrigin = CGPoint(
-            x: labelFrame.width + innerMargin,
-            y: round((size.height - boxSize.height)/2)
-        )
-        let boxFrame = CGRect(origin: boxOrigin, size: boxSize)
+            let boxOrigin = CGPoint(
+                x: labelFrame.width + innerMargin,
+                y: round((size.height - boxSize.height)/2)
+            )
+            let boxFrame = CGRect(origin: boxOrigin, size: boxSize)
 
-        frameLayer?.frame = boxFrame
-        fillLayer?.frame = boxFrame
-        fillLayer?.bounds = CGRect(origin: .zero, size: boxSize)
+            frameLayer?.frame = boxFrame
+            fillLayer?.frame = boxFrame
+            fillLayer?.bounds = CGRect(origin: .zero, size: boxSize)
+
+        case .right:
+            let boxFrame = CGRect(origin: .zero, size: boxSize)
+            frameLayer?.frame = boxFrame
+            fillLayer?.frame = boxFrame
+
+            fillLayer?.bounds = CGRect(origin: .zero, size: boxSize)
+
+            let labelOrigin = CGPoint(x: boxSize.width + innerMargin, y: round((size.height - labelBounds.height)/2))
+            let labelFrame = CGRect(origin: labelOrigin, size: labelBounds.size)
+            titleLabel.frame = labelFrame
+        }
     }
 }
