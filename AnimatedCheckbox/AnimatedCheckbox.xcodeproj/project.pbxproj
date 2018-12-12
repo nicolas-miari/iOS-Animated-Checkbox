@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F705B3C21C0C7E5003DFEFB /* UIBezierPath+Superellipsoid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F705B3B21C0C7E5003DFEFB /* UIBezierPath+Superellipsoid.swift */; };
 		1FE468BE21C0A87700365141 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE468BD21C0A87700365141 /* GalleryViewController.swift */; };
 		1FE5F0EB21BF9FC40085F7EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE5F0EA21BF9FC40085F7EA /* AppDelegate.swift */; };
 		1FE5F0F021BF9FC40085F7EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FE5F0EE21BF9FC40085F7EA /* Main.storyboard */; };
@@ -17,6 +18,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F705B3B21C0C7E5003DFEFB /* UIBezierPath+Superellipsoid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Superellipsoid.swift"; sourceTree = "<group>"; };
+		1F705B3E21C0D2CC003DFEFB /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		1F705B4121C0D311003DFEFB /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ja; path = ja.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1F705B4421C0D43D003DFEFB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1FE468BD21C0A87700365141 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		1FE5F0E721BF9FC40085F7EA /* AnimatedCheckbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimatedCheckbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FE5F0EA21BF9FC40085F7EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +66,7 @@
 				1FE5F0EA21BF9FC40085F7EA /* AppDelegate.swift */,
 				1FE468BD21C0A87700365141 /* GalleryViewController.swift */,
 				1FE5F0FC21BFA0120085F7EA /* Checkbox.swift */,
+				1F705B3B21C0C7E5003DFEFB /* UIBezierPath+Superellipsoid.swift */,
 				1FE5F0FE21BFCA760085F7EA /* UIColor+Extensions.swift */,
 				1FE5F0EE21BF9FC40085F7EA /* Main.storyboard */,
 				1FE5F0F121BF9FC70085F7EA /* Assets.xcassets */,
@@ -112,6 +118,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = 1FE5F0DE21BF9FC40085F7EA;
 			productRefGroup = 1FE5F0E821BF9FC40085F7EA /* Products */;
@@ -144,6 +151,7 @@
 				1FE5F0EB21BF9FC40085F7EA /* AppDelegate.swift in Sources */,
 				1FE468BE21C0A87700365141 /* GalleryViewController.swift in Sources */,
 				1FE5F0FD21BFA0120085F7EA /* Checkbox.swift in Sources */,
+				1F705B3C21C0C7E5003DFEFB /* UIBezierPath+Superellipsoid.swift in Sources */,
 				1FE5F0FF21BFCA760085F7EA /* UIColor+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -155,6 +163,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				1FE5F0EF21BF9FC40085F7EA /* Base */,
+				1F705B4121C0D311003DFEFB /* ja */,
+				1F705B4421C0D43D003DFEFB /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -163,6 +173,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				1FE5F0F421BF9FC70085F7EA /* Base */,
+				1F705B3E21C0D2CC003DFEFB /* ja */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -174,6 +185,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -235,6 +247,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Checkbox Gallery-->
+        <!--チェックボックスギャラリー-->
         <scene sceneID="A5x-ao-vFs">
             <objects>
                 <tableViewController id="Zru-6K-XFy" customClass="GalleryViewController" customModule="AnimatedCheckbox" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection headerTitle="Title Alignment" id="zHt-3Y-JGB">
+                            <tableViewSection headerTitle="タイトルの整列" id="zHt-3Y-JGB">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="70" id="QHQ-u9-o4v">
                                         <rect key="frame" x="0.0" y="55.5" width="375" height="70"/>
@@ -32,8 +32,8 @@
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(no title, box only)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3nd-NK-Hbz">
-                                                    <rect key="frame" x="242" y="26.5" width="117" height="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="（空・ボックスのみ）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3nd-NK-Hbz">
+                                                    <rect key="frame" x="216" y="26.5" width="143" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -55,11 +55,11 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SIz-Tj-Hlr" customClass="Checkbox" customModule="AnimatedCheckbox" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="15" width="178.5" height="40"/>
+                                                    <rect key="frame" x="16" y="15" width="152" height="40"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Title on the Right"/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="右側タイトル"/>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="leftTitle" value="NO"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
@@ -78,11 +78,11 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pJp-DN-k2l" customClass="Checkbox" customModule="AnimatedCheckbox" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="15" width="168" height="40"/>
+                                                    <rect key="frame" x="16" y="15" width="152" height="40"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Title on the Left"/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="左側タイトル"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
@@ -94,7 +94,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Additional Border Styles" id="Gnp-5g-zdh">
+                            <tableViewSection headerTitle="その他の罫線スタイル" id="Gnp-5g-zdh">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="gGG-VP-mbU">
                                         <rect key="frame" x="0.0" y="321.5" width="375" height="70"/>
@@ -104,11 +104,11 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LDa-cC-srD" customClass="Checkbox" customModule="AnimatedCheckbox" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="15" width="217.5" height="40"/>
+                                                    <rect key="frame" x="16" y="15" width="256" height="40"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Border Color Changes"/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="選択時、罫線の色が変わる"/>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="leftTitle" value="NO"/>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="onBorder">
                                                             <color key="value" red="1" green="0.70196078429999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -130,11 +130,11 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vIi-bX-kH8" customClass="Checkbox" customModule="AnimatedCheckbox" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="15" width="183" height="40"/>
+                                                    <rect key="frame" x="16" y="15" width="291" height="40"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Fill Covers Border"/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="選択時、塗り足しが罫線を隠す"/>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="leftTitle" value="NO"/>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="overcheck" value="YES"/>
                                                     </userDefinedRuntimeAttributes>
@@ -148,7 +148,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Additional Shapes" id="rfu-Tu-M0E">
+                            <tableViewSection headerTitle="その他の形状" id="rfu-Tu-M0E">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="GVj-UE-v6g">
                                         <rect key="frame" x="0.0" y="517.5" width="375" height="70"/>
@@ -158,11 +158,11 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z61-Du-eFm" customClass="Checkbox" customModule="AnimatedCheckbox" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="15" width="92" height="40"/>
+                                                    <rect key="frame" x="16" y="15" width="83" height="40"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Circle"/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="円形"/>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="leftTitle" value="NO"/>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="radio" value="YES"/>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="overcheck" value="YES"/>
@@ -183,11 +183,11 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b2R-Fa-K2m" customClass="Checkbox" customModule="AnimatedCheckbox" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="15" width="156" height="40"/>
+                                                    <rect key="frame" x="16" y="15" width="100" height="40"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Superellipsoid"/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="超楕円"/>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="leftTitle" value="NO"/>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="radio" value="YES"/>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="overcheck" value="YES"/>
@@ -209,7 +209,7 @@
                             <outlet property="delegate" destination="Zru-6K-XFy" id="sGw-lU-AfA"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Checkbox Gallery" id="DWZ-dR-W9P"/>
+                    <navigationItem key="navigationItem" title="チェックボックスギャラリー" id="DWZ-dR-W9P"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="1000"/>
                 </tableViewController>

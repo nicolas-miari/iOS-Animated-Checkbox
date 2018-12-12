@@ -71,10 +71,19 @@ class Checkbox: UIControl {
 
     @IBInspectable var radio: Bool {
         set {
-            self.style = newValue ? .radioButton : .checkbox
+            self.style = newValue ? .circle : .square
         }
         get {
-            return style == .radioButton
+            return style == .circle
+        }
+    }
+
+    @IBInspectable var ellipsoid: Bool {
+        set {
+            self.style = newValue ? .superellipsoid : .square
+        }
+        get {
+            return style == .superellipsoid
         }
     }
 
@@ -84,7 +93,7 @@ class Checkbox: UIControl {
     var normalBorderColor: UIColor = .lightGray {
         didSet {
             if !isSelected {
-                frameLayer.borderColor = normalBorderColor.cgColor
+                frameLayer.strokeColor = normalBorderColor.cgColor
             }
         }
     }
@@ -94,7 +103,7 @@ class Checkbox: UIControl {
     var selectedBorderColor: UIColor = .lightGray {
         didSet {
             if isSelected {
-                frameLayer.borderColor = selectedBorderColor.cgColor
+                frameLayer.strokeColor = selectedBorderColor.cgColor
             }
         }
     }
@@ -103,14 +112,14 @@ class Checkbox: UIControl {
     var font: UIFont = UIFont.systemFont(ofSize: 17)
 
     enum Style {
-        case checkbox
-        case radioButton
+        case square
+        case circle
+        case superellipsoid
     }
 
-    var style: Style = .checkbox {
+    var style: Style = .square {
         didSet {
-            frameLayer.cornerRadius = cornerRadius
-            fillLayer.cornerRadius = cornerRadius
+            updatePaths()
         }
     }
 
@@ -148,10 +157,10 @@ class Checkbox: UIControl {
     private let titleLabel: UILabel
 
     // Displayes the outline of the unchecked box or radio button.
-    private var frameLayer: CALayer!
+    private var frameLayer: CAShapeLayer!
 
     // Displays the fill color and checkmark of the checked box or radio button.
-    private var fillLayer: CALayer!
+    private var fillLayer: CAShapeLayer!
 
     // When checked, fill and checkmark fade in while growing from this scale
     // factor to full size (1.0).
@@ -165,14 +174,7 @@ class Checkbox: UIControl {
     }
 
     // The corner radius of the checkbox. For radio button, it equals sideLength/2.
-    private var cornerRadius: CGFloat {
-        switch style {
-        case .checkbox:
-            return 9
-        case .radioButton:
-            return sideLength / 2
-        }
-    }
+    private var cornerRadius: CGFloat = 9
 
     // The color of the filled (checked) backgrond, when highlighted (about to deselect).
     private var adjustedTintColor: UIColor! {
@@ -184,9 +186,9 @@ class Checkbox: UIControl {
     override var tintColor: UIColor! {
         didSet {
             if isHighlighted {
-                fillLayer.backgroundColor = adjustedTintColor.cgColor
+                fillLayer.fillColor = adjustedTintColor.cgColor
             } else {
-                fillLayer.backgroundColor = tintColor.cgColor
+                fillLayer.fillColor = tintColor.cgColor
             }
         }
     }
@@ -227,12 +229,12 @@ class Checkbox: UIControl {
     override var isHighlighted: Bool {
         didSet {
             if isHighlighted {
-                frameLayer.borderWidth = 4
-                fillLayer.backgroundColor = adjustedTintColor.cgColor
+                frameLayer.lineWidth = 4
+                fillLayer.fillColor = adjustedTintColor.cgColor
             } else {
-                frameLayer.borderWidth = 2
+                frameLayer.lineWidth = 2
                 self.tintAdjustmentMode = .normal
-                fillLayer.backgroundColor = tintColor.cgColor
+                fillLayer.fillColor = tintColor.cgColor
             }
         }
     }
@@ -240,20 +242,19 @@ class Checkbox: UIControl {
     override var isSelected: Bool {
         didSet {
             if isSelected {
-
                 fillLayer.opacity = 1
                 fillLayer.transform = CATransform3DIdentity
 
                 if overdrawFill {
-                    frameLayer.borderColor = tintColor.cgColor
+                    frameLayer.strokeColor = tintColor.cgColor
                 } else {
-                    frameLayer.borderColor = selectedBorderColor.cgColor
+                    frameLayer.strokeColor = selectedBorderColor.cgColor
                 }
             } else {
                 fillLayer.opacity = 0
                 fillLayer.transform = CATransform3DMakeScale(shrinkingFactor, shrinkingFactor, 1)
 
-                frameLayer.borderColor = normalBorderColor.cgColor
+                frameLayer.strokeColor = normalBorderColor.cgColor
             }
             sendActions(for: .valueChanged)
         }
@@ -311,18 +312,20 @@ class Checkbox: UIControl {
         titleLabel.sizeToFit()
 
         // Rounded gray frame (uncheked state)
-        self.frameLayer = CALayer()
+        self.frameLayer = CAShapeLayer()
         frameLayer.bounds = CGRect(origin: .zero, size: boxSize)
-        frameLayer.cornerRadius = cornerRadius
-        frameLayer.borderWidth = 2
-        frameLayer.borderColor = UIColor.lightGray.cgColor
+        frameLayer.lineWidth = 2
+        frameLayer.strokeColor = UIColor.lightGray.cgColor
+        frameLayer.fillColor = UIColor.clear.cgColor
         self.layer.addSublayer(frameLayer)
 
         // Rounded blue square (checked state)
-        self.fillLayer = CALayer()
+        //self.fillLayer = CALayer()
+
+        self.fillLayer = CAShapeLayer()
         fillLayer.bounds = CGRect(origin: .zero, size: boxSize)
-        fillLayer.backgroundColor = tintColor.cgColor
-        fillLayer.cornerRadius = cornerRadius
+        fillLayer.strokeColor = UIColor.clear.cgColor
+        fillLayer.fillColor = tintColor.cgColor
         fillLayer.opacity = 0
         fillLayer.transform = CATransform3DMakeScale(shrinkingFactor, shrinkingFactor, 1)
 
@@ -352,6 +355,23 @@ class Checkbox: UIControl {
         fillLayer.addSublayer(tickLayer)
 
         updateComponentFrames()
+
+        updatePaths()
+    }
+
+    private func updatePaths() {
+        switch style {
+        case .square:
+            frameLayer.path = CGPath(roundedRect: frameLayer.bounds, cornerWidth: 9, cornerHeight: 9, transform: nil)
+            fillLayer.path = CGPath(roundedRect: fillLayer.bounds, cornerWidth: 9, cornerHeight: 9, transform: nil)
+        case .circle:
+            frameLayer.path = CGPath(ellipseIn: frameLayer.bounds, transform: nil)
+            fillLayer.path = CGPath(ellipseIn: fillLayer.bounds, transform: nil)
+
+        case .superellipsoid:
+            frameLayer.path = UIBezierPath.superellipsoid(in: frameLayer.bounds).cgPath
+            fillLayer.path = UIBezierPath.superellipsoid(in: fillLayer.bounds).cgPath
+        }
     }
 
     private func updateComponentFrames() {
