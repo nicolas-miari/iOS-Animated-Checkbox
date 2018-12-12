@@ -9,9 +9,16 @@
 import UIKit
 
 /**
- Custom Checkbox control.
- Visual style mimics the standard macOS checkboxes, but at a finger-friendly
- size of 40 x 40 points.
+ A checkbox-like toggle switch control. The box can be styled in rounded,
+ square, circle or superellipse (squircle) shape. Additionally, an optional
+ title label can be displayed to the left or right of the checkbox.
+
+ The control receives touches both within the bounds of checkbox itself as well
+ as on those of the title label. Transitions between the checked (selected) and
+ unchecked (deselcted) states are animated much like the standard checkboxes in
+ macOS. The colors of various components, as well as the label layout and
+ checkbox shape can be customized; see the exposed properties for further
+ details.
  */
 @IBDesignable
 class Checkbox: UIControl {
