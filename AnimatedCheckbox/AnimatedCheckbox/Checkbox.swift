@@ -174,7 +174,7 @@ class Checkbox: UIControl {
     private let shrinkingFactor: CGFloat = 0.5
 
     // The side length of the checkbox (or diameter of the radio button), in points.
-    private let sideLength: CGFloat = 36 // 40
+    private let sideLength: CGFloat = 28 // 40
 
     private var boxSize: CGSize {
         return CGSize(width: sideLength, height: sideLength)
@@ -360,7 +360,7 @@ class Checkbox: UIControl {
         tickLayer.path = tickPath.cgPath
         tickLayer.fillColor = nil
         tickLayer.strokeColor = UIColor.white.cgColor
-        tickLayer.lineWidth = 4
+        tickLayer.lineWidth = 3
         tickLayer.lineCap = .round
         tickLayer.lineJoin = .round
         /*
