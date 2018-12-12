@@ -167,7 +167,7 @@ class Checkbox: UIControl {
     private let shrinkingFactor: CGFloat = 0.5
 
     // The side length of the checkbox (or diameter of the radio button), in points.
-    private let sideLength: CGFloat = 40
+    private let sideLength: CGFloat = 36 // 40
 
     private var boxSize: CGSize {
         return CGSize(width: sideLength, height: sideLength)
@@ -229,12 +229,18 @@ class Checkbox: UIControl {
     override var isHighlighted: Bool {
         didSet {
             if isHighlighted {
-                frameLayer.lineWidth = 4
-                fillLayer.fillColor = adjustedTintColor.cgColor
+                if isSelected {
+                    fillLayer.fillColor = adjustedTintColor.cgColor
+                } else {
+                    frameLayer.lineWidth = 4
+                }
             } else {
-                frameLayer.lineWidth = 2
-                self.tintAdjustmentMode = .normal
-                fillLayer.fillColor = tintColor.cgColor
+                if isSelected {
+                    fillLayer.fillColor = tintColor.cgColor
+                } else {
+                    frameLayer.lineWidth = 2
+                }
+                //self.tintAdjustmentMode = .normal
             }
         }
     }
@@ -336,10 +342,12 @@ class Checkbox: UIControl {
         }
 
         // White Tick (checked state)
+        let scalingFactor: CGFloat = sideLength / 40
+
         let tickPath = UIBezierPath()
-        tickPath.move(to: CGPoint(x: 11, y: 21))
-        tickPath.addLine(to: CGPoint(x: 17, y: 28))
-        tickPath.addLine(to: CGPoint(x: 30, y: 12))
+        tickPath.move(to: CGPoint(x: 11 * scalingFactor, y: 21 * scalingFactor))
+        tickPath.addLine(to: CGPoint(x: 17 * scalingFactor, y: 28 * scalingFactor))
+        tickPath.addLine(to: CGPoint(x: 30 * scalingFactor, y: 12 * scalingFactor))
 
         let tickLayer = CAShapeLayer()
         tickLayer.path = tickPath.cgPath
@@ -348,10 +356,12 @@ class Checkbox: UIControl {
         tickLayer.lineWidth = 4
         tickLayer.lineCap = .round
         tickLayer.lineJoin = .round
+        /*
         tickLayer.shadowColor = UIColor.black.cgColor
         tickLayer.shadowOpacity = 0.25
         tickLayer.shadowOffset = CGSize(width: 0, height: 2)
         tickLayer.shadowRadius = 1
+         */
         fillLayer.addSublayer(tickLayer)
 
         updateComponentFrames()
