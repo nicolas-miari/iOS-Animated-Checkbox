@@ -49,6 +49,15 @@ class Checkbox: UIControl {
         }
     }
 
+    @IBInspectable var overcheck: Bool {
+        set {
+            self.overdrawFill = newValue
+        }
+        get {
+            return overdrawFill
+        }
+    }
+
     /// If true, the title label is placed left of the checkbox; otherwise, it
     /// is placed to the right.
     @IBInspectable var leftTitle: Bool {
@@ -80,7 +89,8 @@ class Checkbox: UIControl {
         }
     }
 
-    /// Color of the checkbox's outline when checked.
+    /// Color of the checkbox's outline when checked. Ignored if `overdrawFill`
+    /// is true.
     var selectedBorderColor: UIColor = .lightGray {
         didSet {
             if isSelected {
@@ -99,9 +109,6 @@ class Checkbox: UIControl {
 
     var style: Style = .checkbox {
         didSet {
-            if style == .radioButton {
-                print("RADIO")
-            }
             frameLayer.cornerRadius = cornerRadius
             fillLayer.cornerRadius = cornerRadius
         }
@@ -115,6 +122,23 @@ class Checkbox: UIControl {
     var titlePosition: TitlePosition = .left {
         didSet {
             updateComponentFrames()
+        }
+    }
+
+    /**
+     If true, the checked state is drawn on top, obscuring the box outline. In
+     this case, the property `selectedBorderColor` is seen only briefly, during
+     the transition.
+     */
+    var overdrawFill: Bool = false {
+        didSet {
+            if overdrawFill {
+                fillLayer.removeFromSuperlayer()
+                self.layer.addSublayer(fillLayer)
+            } else {
+                fillLayer.removeFromSuperlayer()
+                self.layer.insertSublayer(fillLayer, at: 0)
+            }
         }
     }
 
@@ -216,13 +240,20 @@ class Checkbox: UIControl {
     override var isSelected: Bool {
         didSet {
             if isSelected {
-                frameLayer.borderColor = selectedBorderColor.cgColor
+
                 fillLayer.opacity = 1
                 fillLayer.transform = CATransform3DIdentity
+
+                if overdrawFill {
+                    frameLayer.borderColor = tintColor.cgColor
+                } else {
+                    frameLayer.borderColor = selectedBorderColor.cgColor
+                }
             } else {
-                frameLayer.borderColor = normalBorderColor.cgColor
                 fillLayer.opacity = 0
                 fillLayer.transform = CATransform3DMakeScale(shrinkingFactor, shrinkingFactor, 1)
+
+                frameLayer.borderColor = normalBorderColor.cgColor
             }
             sendActions(for: .valueChanged)
         }
@@ -294,8 +325,12 @@ class Checkbox: UIControl {
         fillLayer.cornerRadius = cornerRadius
         fillLayer.opacity = 0
         fillLayer.transform = CATransform3DMakeScale(shrinkingFactor, shrinkingFactor, 1)
-        //self.layer.addSublayer(fillLayer)
-        self.layer.insertSublayer(fillLayer, at: 0)
+
+        if overdrawFill {
+            self.layer.addSublayer(fillLayer)
+        } else {
+            self.layer.insertSublayer(fillLayer, at: 0)
+        }
 
         // White Tick (checked state)
         let tickPath = UIBezierPath()
