@@ -37,6 +37,15 @@ import UIKit
         }
     }
 
+    @IBInspectable var size: CGFloat {
+        set {
+            self.sideLength = newValue
+        }
+        get {
+            return sideLength
+        }
+    }
+
     @IBInspectable var textColor: UIColor = .darkGray {
         didSet {
             titleLabel.textColor = textColor
@@ -227,7 +236,11 @@ import UIKit
     private let shrinkingFactor: CGFloat = 0.5
 
     // The side length of the checkbox (or diameter of the radio button), in points.
-    private let sideLength: CGFloat = 28 // 40
+    private var sideLength: CGFloat = 28 {
+        didSet {
+            configureComponents()
+        }
+    }
 
     private var boxSize: CGSize {
         return CGSize(width: sideLength, height: sideLength)
@@ -379,6 +392,10 @@ import UIKit
     // MARK: - Support
 
     private func configureComponents() {
+        // Remove existing sublayers (clean slate allows for calling the method
+        // multiple times, e.g. when box size changes).
+        frameLayer?.removeFromSuperlayer()
+        fillLayer?.removeFromSuperlayer()
 
         self.clipsToBounds = false
 
@@ -396,8 +413,6 @@ import UIKit
         self.layer.addSublayer(frameLayer)
 
         // Rounded blue square (checked state)
-        //self.fillLayer = CALayer()
-
         self.fillLayer = CAShapeLayer()
         fillLayer.bounds = CGRect(origin: .zero, size: boxSize)
         fillLayer.strokeColor = UIColor.clear.cgColor
@@ -435,7 +450,6 @@ import UIKit
         fillLayer.addSublayer(tickLayer)
 
         updateComponentFrames()
-
         updatePaths()
     }
 
