@@ -56,6 +56,15 @@ class Checkbox: UIControl {
         }
     }
 
+    @IBInspectable var autoOnBorder: Bool {
+        set {
+            self.useAutomaticSelectedBorderColor = newValue
+        }
+        get {
+            return useAutomaticSelectedBorderColor
+        }
+    }
+
     @IBInspectable var overcheck: Bool {
         set {
             self.overdrawFill = newValue
@@ -109,8 +118,27 @@ class Checkbox: UIControl {
     /// is true.
     var selectedBorderColor: UIColor = .lightGray {
         didSet {
+            print("Did Set Selected Border Color: \(selectedBorderColor.description)")
             if isSelected {
+                if useAutomaticSelectedBorderColor {
+                    return
+                }
                 frameLayer.strokeColor = selectedBorderColor.cgColor
+            }
+        }
+    }
+
+    /// Setting to true causes the `selectedBorderColor` to be set to the dimmed
+    /// version of the selected **fill** color (i.e., `adjustedTintColor`).
+    /// Setting to false causes the `selectedBorderColor` to be set to the same
+    /// value as `normalBorderColor`.
+    ///
+    var useAutomaticSelectedBorderColor: Bool = false {
+        didSet {
+            if useAutomaticSelectedBorderColor {
+                selectedBorderColor = adjustedTintColor
+            } else {
+                selectedBorderColor = normalBorderColor
             }
         }
     }
@@ -184,6 +212,7 @@ class Checkbox: UIControl {
     private var cornerRadius: CGFloat = 6
 
     // The color of the filled (checked) backgrond, when highlighted (about to deselect).
+    // TODO: Considered making a stored property, and update it only when tint changes.
     private var adjustedTintColor: UIColor! {
         return tintColor.darkened(byPercentage: 0.2)
     }
@@ -247,7 +276,6 @@ class Checkbox: UIControl {
                 } else {
                     frameLayer.lineWidth = 2
                 }
-                //self.tintAdjustmentMode = .normal
             }
         }
     }
@@ -293,6 +321,13 @@ class Checkbox: UIControl {
 
     override func tintColorDidChange() {
         super.tintColorDidChange()
+
+        // Update all color properties that depend on tint.
+        // (adjustedTintColor is computed)
+        fillLayer.fillColor = adjustedTintColor.cgColor
+        if useAutomaticSelectedBorderColor {
+            selectedBorderColor = adjustedTintColor
+        }
         fillLayer.setNeedsDisplay()
     }
 
