@@ -20,10 +20,15 @@ import UIKit
  checkbox shape can be customized; see the exposed properties for further
  details.
  */
-@IBDesignable
-class Checkbox: UIControl {
+@IBDesignable class Checkbox: UIControl {
 
     // MARK: - Configuration (Interfce Builder)
+
+    /*
+     NOTE: Most inspectable properties are wrappers around stored properties but
+     with a shorter name, more suited to the little space available to property
+     name labels in Interface Builder's Attribute Inspector (to avoid truncation).
+     */
 
     @IBInspectable var title: String = "" {
         didSet {
@@ -74,8 +79,6 @@ class Checkbox: UIControl {
         }
     }
 
-    /// If true, the title label is placed left of the checkbox; otherwise, it
-    /// is placed to the right.
     @IBInspectable var leftTitle: Bool {
         set {
             self.titlePosition = newValue ? .left : .right
@@ -106,6 +109,7 @@ class Checkbox: UIControl {
     // MARK: - Configuration (Programmatic)
 
     /// Color of the checkbox's outline when unchecked.
+    ///
     var normalBorderColor: UIColor = .lightGray {
         didSet {
             if !isSelected {
@@ -114,11 +118,12 @@ class Checkbox: UIControl {
         }
     }
 
-    /// Color of the checkbox's outline when checked. Ignored if `overdrawFill`
-    /// is true.
+    /**
+     Color of the checkbox's outline when checked. Ignored if `overdrawFill` is
+     true.
+     */
     var selectedBorderColor: UIColor = .lightGray {
         didSet {
-            print("Did Set Selected Border Color: \(selectedBorderColor.description)")
             if isSelected {
                 if useAutomaticSelectedBorderColor {
                     return
@@ -128,11 +133,12 @@ class Checkbox: UIControl {
         }
     }
 
-    /// Setting to true causes the `selectedBorderColor` to be set to the dimmed
-    /// version of the selected **fill** color (i.e., `adjustedTintColor`).
-    /// Setting to false causes the `selectedBorderColor` to be set to the same
-    /// value as `normalBorderColor`.
-    ///
+    /**
+     Setting to `true` causes the `selectedBorderColor` to be set to the dimmed
+     version of the selected **fill** color (i.e., `adjustedTintColor`).
+     Setting to `false` causes the `selectedBorderColor` to be set to the same
+     value as `normalBorderColor`.
+    */
     var useAutomaticSelectedBorderColor: Bool = false {
         didSet {
             if useAutomaticSelectedBorderColor {
@@ -144,7 +150,13 @@ class Checkbox: UIControl {
     }
 
     /// Font used in the title label.
-    var font: UIFont = UIFont.systemFont(ofSize: 17)
+    ///
+    var font: UIFont = UIFont.systemFont(ofSize: 17) {
+        didSet {
+            titleLabel.font = font
+            updateComponentFrames()
+        }
+    }
 
     enum Style {
         case square
@@ -152,17 +164,30 @@ class Checkbox: UIControl {
         case superellipse
     }
 
+    /// Visual style (shape) of the box component.
+    ///
     var style: Style = .square {
         didSet {
             updatePaths()
         }
     }
 
+    /**
+     Constants specifying the options for laying out the title label with
+     respect to the checkbox component.
+     */
     enum TitlePosition {
+        /// Title label is positioned to the **left** of the checkbox.
         case left
+
+        /// Title label is positioned to the **right** of the checkbox.
         case right
     }
 
+    /**
+     Layout of the title label with respect to the checkbox component. The
+     default is `.left`.
+     */
     var titlePosition: TitlePosition = .left {
         didSet {
             updateComponentFrames()
@@ -188,13 +213,13 @@ class Checkbox: UIControl {
 
     // MARK: - Internal Structure
 
-    // Displayes the optional title.
+    // Displayes the (optional) title.
     private let titleLabel: UILabel
 
-    // Displayes the outline of the unchecked box or radio button.
+    // Displayes the outline of the checkbox component in the UNCHECKED (unselected) state.
     private var frameLayer: CAShapeLayer!
 
-    // Displays the fill color and checkmark of the checked box or radio button.
+    // Displays the fill color and checkmark of checkbox component in the CHECKED (selected) state.
     private var fillLayer: CAShapeLayer!
 
     // When checked, fill and checkmark fade in while growing from this scale
@@ -206,6 +231,14 @@ class Checkbox: UIControl {
 
     private var boxSize: CGSize {
         return CGSize(width: sideLength, height: sideLength)
+    }
+
+    // Margin set between the checkbox and the (nonempty) title label.
+    private var innerMargin: CGFloat {
+        guard !title.isEmpty else {
+            return 0
+        }
+        return 8
     }
 
     // The corner radius of the checkbox. For radio button, it equals sideLength/2.
@@ -233,12 +266,7 @@ class Checkbox: UIControl {
         titleLabel.sizeToFit()
         let labelSize = titleLabel.intrinsicContentSize
 
-        let width: CGFloat = {
-            guard labelSize.width > 0 else {
-                return boxSize.width
-            }
-            return labelSize.width + 8 + boxSize.width
-        }()
+        let width = labelSize.width + innerMargin + boxSize.width
         let height = max(labelSize.height, boxSize.height)
 
         return CGSize(width: width, height: height)
@@ -435,7 +463,6 @@ class Checkbox: UIControl {
 
         let size = intrinsicContentSize
         let labelBounds = titleLabel.bounds
-        let innerMargin: CGFloat = labelBounds.width > 0 ? 8 : 0
 
         switch titlePosition {
         case .left:
