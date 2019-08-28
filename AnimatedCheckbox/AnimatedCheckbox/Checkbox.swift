@@ -438,7 +438,7 @@ import UIKit
         tickLayer.path = tickPath.cgPath
         tickLayer.fillColor = nil
         tickLayer.strokeColor = UIColor.white.cgColor
-        tickLayer.lineWidth = 3
+        tickLayer.lineWidth = sideLength * (3.0 / 28.0)
         tickLayer.lineCap = .round
         tickLayer.lineJoin = .round
         /*
@@ -463,8 +463,9 @@ import UIKit
             fillLayer.path = CGPath(ellipseIn: fillLayer.bounds, transform: nil)
 
         case .superellipse:
-            frameLayer.path = UIBezierPath.superellipse(in: frameLayer.bounds, cornerRadius: 15).cgPath
-            fillLayer.path = UIBezierPath.superellipse(in: frameLayer.bounds, cornerRadius: 15).cgPath
+            let radius: CGFloat = (15.0/28.0) * sideLength
+            frameLayer.path = UIBezierPath.superellipse(in: frameLayer.bounds, cornerRadius: radius).cgPath
+            fillLayer.path = UIBezierPath.superellipse(in: frameLayer.bounds, cornerRadius: radius).cgPath
         }
     }
 

@@ -12,7 +12,8 @@ import UIKit
  Taken from: https://binaryadventures.com/blog/snippet-of-the-week-lighter-and-darker-colors/
  */
 public extension UIColor {
-    public func hsba() -> (hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat)? {
+
+    func hsba() -> (hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat)? {
         var hue: CGFloat = .nan, saturation: CGFloat = .nan, brightness: CGFloat = .nan, alpha: CGFloat = .nan
         guard self.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha) else {
             return nil
@@ -20,7 +21,7 @@ public extension UIColor {
         return (hue: hue, saturation: saturation, brightness: brightness, alpha: alpha)
     }
 
-    public func changedBrightness(byPercentage perc: CGFloat) -> UIColor? {
+    func changedBrightness(byPercentage perc: CGFloat) -> UIColor? {
         if perc == 0 {
             return self.copy() as? UIColor
         }
@@ -32,11 +33,11 @@ public extension UIColor {
         return UIColor(hue: hsba.hue, saturation: hsba.saturation, brightness: newBrightness, alpha: hsba.alpha)
     }
 
-    public func lightened(byPercentage percentage: CGFloat = 0.1) -> UIColor? {
+    func lightened(byPercentage percentage: CGFloat = 0.1) -> UIColor? {
         return changedBrightness(byPercentage: percentage)
     }
 
-    public func darkened(byPercentage percentage: CGFloat = 0.1) -> UIColor? {
+    func darkened(byPercentage percentage: CGFloat = 0.1) -> UIColor? {
         return changedBrightness(byPercentage: -percentage)
     }
 }

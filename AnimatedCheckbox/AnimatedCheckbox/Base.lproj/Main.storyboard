@@ -27,8 +27,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HEX-dh-8zf" customClass="Checkbox" customModule="AnimatedCheckbox" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="21" width="28" height="28"/>
+                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HEX-dh-8zf" customClass="Checkbox" customModule="AnimatedCheckbox" customModuleProvider="target">
+                                                    <rect key="frame" x="16" y="15" width="40" height="40"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(no title, box only)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3nd-NK-Hbz">
@@ -40,9 +40,9 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="3nd-NK-Hbz" firstAttribute="centerY" secondItem="9ec-Lq-hY9" secondAttribute="centerY" id="4U6-5m-mki"/>
-                                                <constraint firstItem="HEX-dh-8zf" firstAttribute="centerY" secondItem="9ec-Lq-hY9" secondAttribute="centerY" id="9VB-BC-QmF"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="3nd-NK-Hbz" secondAttribute="trailing" id="K4g-bW-I18"/>
                                                 <constraint firstItem="3nd-NK-Hbz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="HEX-dh-8zf" secondAttribute="trailing" constant="8" symbolic="YES" id="M0n-gL-60Q"/>
+                                                <constraint firstItem="HEX-dh-8zf" firstAttribute="centerY" secondItem="9ec-Lq-hY9" secondAttribute="centerYWithinMargins" id="kYd-o5-6PX"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="HEX-dh-8zf" secondAttribute="leading" id="vMa-3u-sJL"/>
                                             </constraints>
                                         </tableViewCellContentView>

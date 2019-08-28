@@ -13,12 +13,12 @@
         <scene sceneID="A5x-ao-vFs">
             <objects>
                 <tableViewController id="Zru-6K-XFy" customClass="GalleryViewController" customModule="AnimatedCheckbox" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="sJt-ft-IXH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" delaysContentTouches="NO" dataMode="static" style="grouped" separatorStyle="default" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="sJt-ft-IXH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1033"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection headerTitle="タイトルの整列" id="zHt-3Y-JGB">
+                            <tableViewSection headerTitle="タイトルの整列" footerTitle="（タイトルもヒットエリアのうちです）" id="zHt-3Y-JGB">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="70" id="QHQ-u9-o4v">
                                         <rect key="frame" x="0.0" y="55.5" width="375" height="70"/>
@@ -55,10 +55,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SIz-Tj-Hlr" customClass="Checkbox" customModule="AnimatedCheckbox" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="21" width="140" height="28"/>
+                                                    <rect key="frame" x="16" y="21" width="192" height="28"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="右側タイトル"/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="タイトルを右に配置"/>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="leftTitle" value="NO"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
@@ -77,10 +77,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pJp-DN-k2l" customClass="Checkbox" customModule="AnimatedCheckbox" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="21" width="140" height="28"/>
+                                                    <rect key="frame" x="16" y="21" width="192" height="28"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="左側タイトル"/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="タイトルを左に配置"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
@@ -95,7 +95,7 @@
                             <tableViewSection headerTitle="その他の罫線スタイル" id="Gnp-5g-zdh">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="gGG-VP-mbU">
-                                        <rect key="frame" x="0.0" y="321.5" width="375" height="70"/>
+                                        <rect key="frame" x="0.0" y="333.5" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gGG-VP-mbU" id="ohH-zP-FBr">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
@@ -118,7 +118,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="034-2a-jvz">
-                                        <rect key="frame" x="0.0" y="391.5" width="375" height="70"/>
+                                        <rect key="frame" x="0.0" y="403.5" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="034-2a-jvz" id="Pa8-gF-toS">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
@@ -145,7 +145,7 @@
                             <tableViewSection headerTitle="その他の形状" id="rfu-Tu-M0E">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="GVj-UE-v6g">
-                                        <rect key="frame" x="0.0" y="517.5" width="375" height="70"/>
+                                        <rect key="frame" x="0.0" y="529.5" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GVj-UE-v6g" id="ipi-Gd-5ey">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
@@ -169,7 +169,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="JCs-Y4-NMe">
-                                        <rect key="frame" x="0.0" y="587.5" width="375" height="70"/>
+                                        <rect key="frame" x="0.0" y="599.5" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JCs-Y4-NMe" id="lvf-qe-F2w">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
@@ -195,6 +195,91 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="その他の大きさ" id="R24-SA-Ag9">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="qq6-MC-YEB">
+                                        <rect key="frame" x="0.0" y="725.5" width="375" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qq6-MC-YEB" id="oaa-jw-vzJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Da6-qQ-owq" customClass="Checkbox" customModule="AnimatedCheckbox" customModuleProvider="target">
+                                                    <rect key="frame" x="16" y="21" width="264.5" height="28"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="トラノコ現状（28pt x 28pt）"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="leftTitle" value="NO"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="radio" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="overcheck" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="ellipsoid" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Da6-qQ-owq" firstAttribute="centerY" secondItem="oaa-jw-vzJ" secondAttribute="centerY" id="IkK-b4-dbW"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="Da6-qQ-owq" secondAttribute="leading" id="WcE-kJ-jfv"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="51i-2k-ovF">
+                                        <rect key="frame" x="0.0" y="795.5" width="375" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="51i-2k-ovF" id="bRq-hh-l06">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hRb-PD-Bkx" customClass="Checkbox" customModule="AnimatedCheckbox" customModuleProvider="target">
+                                                    <rect key="frame" x="16" y="13" width="247" height="44"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="中サイズ（44pt x 44pt）"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="leftTitle" value="NO"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="radio" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="overcheck" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="ellipsoid" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="size">
+                                                            <real key="value" value="44"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="leadingMargin" secondItem="hRb-PD-Bkx" secondAttribute="leading" id="5on-af-maS"/>
+                                                <constraint firstItem="hRb-PD-Bkx" firstAttribute="centerY" secondItem="bRq-hh-l06" secondAttribute="centerY" id="sh1-G9-aUL"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="lKq-HW-vbx">
+                                        <rect key="frame" x="0.0" y="865.5" width="375" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lKq-HW-vbx" id="nhl-ZO-h2e">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vog-Va-Hob" customClass="Checkbox" customModule="AnimatedCheckbox" customModuleProvider="target">
+                                                    <rect key="frame" x="16" y="14" width="271.5" height="72"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="大サイズ（72pt x 72pt）"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="leftTitle" value="NO"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="radio" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="overcheck" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="ellipsoid" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="size">
+                                                            <real key="value" value="72"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="leadingMargin" secondItem="Vog-Va-Hob" secondAttribute="leading" id="BYE-Vu-r1l"/>
+                                                <constraint firstItem="Vog-Va-Hob" firstAttribute="centerY" secondItem="nhl-ZO-h2e" secondAttribute="centerY" id="ylW-U8-Hvq"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="Zru-6K-XFy" id="Js6-bo-9Co"/>
@@ -203,7 +288,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="チェックボックスギャラリー" id="DWZ-dR-W9P"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="1000"/>
+                    <size key="freeformSize" width="375" height="1033"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jmX-22-Ifm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
