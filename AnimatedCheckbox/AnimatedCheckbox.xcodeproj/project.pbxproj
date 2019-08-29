@@ -63,7 +63,7 @@
 			path = Superellispe_Testing;
 			sourceTree = "<group>";
 		};
-		1F705B4B21C10EFF003DFEFB /* Supporting_Extensions */ = {
+		1F705B4B21C10EFF003DFEFB /* Support */ = {
 			isa = PBXGroup;
 			children = (
 				1F705B3B21C0C7E5003DFEFB /* UIBezierPath+Superellipsoid.swift */,
@@ -72,7 +72,7 @@
 				1F44EC9523167F50008A2013 /* UIImage+AnimatedGif.swift */,
 				1F44EC9323167F1F008A2013 /* ViewRecorder.swift */,
 			);
-			path = Supporting_Extensions;
+			path = Support;
 			sourceTree = "<group>";
 		};
 		1FE5F0DE21BF9FC40085F7EA = {
@@ -97,7 +97,7 @@
 				1FE5F0EA21BF9FC40085F7EA /* AppDelegate.swift */,
 				1FE5F0FC21BFA0120085F7EA /* Checkbox.swift */,
 				1FE468BD21C0A87700365141 /* GalleryViewController.swift */,
-				1F705B4B21C10EFF003DFEFB /* Supporting_Extensions */,
+				1F705B4B21C10EFF003DFEFB /* Support */,
 				1F705B4A21C10EED003DFEFB /* Superellispe_Testing */,
 				1FE5F0F321BF9FC70085F7EA /* LaunchScreen.storyboard */,
 				1FE5F0EE21BF9FC40085F7EA /* Main.storyboard */,

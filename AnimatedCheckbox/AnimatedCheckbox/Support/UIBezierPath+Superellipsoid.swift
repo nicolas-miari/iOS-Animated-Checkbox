@@ -11,25 +11,22 @@ import UIKit
 extension UIBezierPath {
 
     /**
-     Draws the super-elliptic analog of a rounded rect. Unlike the regular
-     rounded rect, the rounded corners are the quadrants of a superellipse
-     (i.e., parabolic segments), _not_ circular arcs.
-     If `rect` is a square and `cornerRadius` is equal to half the length or
-     more, and actual superellipse is drawn (no straight sections along its
-     boundary) just like doing the same with a rounded rect results in a circle
-     being drawn.
+     Draws the super-elliptic analog of a rounded rect. Unlike the regular rounded rect, the rounded corners
+     are the quadrants of a superellipse (i.e., parabolic segments), _not_ circular arcs.
+     If `rect` is a square and `cornerRadius` is equal to half the length or more, and actual superellipse is
+     drawn (no straight sections along its boundary) just like doing the same with a rounded rect results in a
+     circle being drawn.
 
      - parameter rect: The rectangle in which to inscribe the superelliptic path.
-     - parameter cornerRadius: How much of the extent of each edge (on each end)
-     is replaced by the parabolic arcs. If it exceeds half of the length of the
-     rectangle's shorter side, it is clamped to that amount.
+     - parameter cornerRadius: How much of the extent of each edge (on each end) is replaced by the parabolic
+     arcs. If it exceeds half of the length of the rectangle's shorter side, it is clamped to that amount.
 
      [Superellipse reference](https://en.wikipedia.org/wiki/Superellipse) (Wikipedia)
      */
     static func superellipse(in rect: CGRect, cornerRadius: CGFloat) -> UIBezierPath {
-
-        // Corner radius can't exceed half of the shorter side; correct if
-        // necessary:
+        /*
+         Corner radius can't exceed half of the shorter side; correct if necessary:
+         */
         let minSide = min(rect.width, rect.height)
         let radius = min(cornerRadius, minSide/2)
 

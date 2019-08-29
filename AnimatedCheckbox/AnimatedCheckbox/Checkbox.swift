@@ -9,25 +9,22 @@
 import UIKit
 
 /**
- A checkbox-like toggle switch control. The box can be styled in rounded,
- square, circle or superellipse (squircle) shape. Additionally, an optional
- title label can be displayed to the left or right of the checkbox.
+ A checkbox-like toggle switch control. The box can be styled in rounded, square, circle or superellipse (squircle)
+ shape. Additionally, an optional title label can be displayed to the left or right of the checkbox.
 
- The control receives touches both within the bounds of checkbox itself as well
- as on those of the title label. Transitions between the checked (selected) and
- unchecked (deselcted) states are animated much like the standard checkboxes in
- macOS. The colors of various components, as well as the label layout and
- checkbox shape can be customized; see the exposed properties for further
- details.
+ The control receives touches both within the bounds of checkbox itself as well as on those of the title label.
+ Transitions between the checked (selected) and unchecked (deselcted) states are animated much like the standard
+ checkboxes in macOS. The colors of various components, as well as the label layout and checkbox shape can be
+ customized; see the exposed properties for further details.
  */
 @IBDesignable class Checkbox: UIControl {
 
     // MARK: - Configuration (Interfce Builder)
 
     /*
-     NOTE: Most inspectable properties are wrappers around stored properties but
-     with a shorter name, more suited to the little space available to property
-     name labels in Interface Builder's Attribute Inspector (to avoid truncation).
+     NOTE: Most inspectable properties are wrappers around stored properties but with a shorter name --more suited
+     to the little space available to property name labels in Interface Builder's Attribute Inspector-- to avoid
+     truncation.
      */
 
     @IBInspectable var title: String = "" {
@@ -117,8 +114,9 @@ import UIKit
 
     // MARK: - Configuration (Programmatic)
 
-    /// Color of the checkbox's outline when unchecked.
-    ///
+    /**
+     Color of the checkbox's outline when unchecked.
+     */
     var normalBorderColor: UIColor = .lightGray {
         didSet {
             if !isSelected {
@@ -244,6 +242,8 @@ import UIKit
 
     // MARK: - Internal Structure
 
+    // Set to `true` to capure animation from the moment the control is selected to one second after it is
+    // deselected. For capturing purposes.
     private var recordingEnabled: Bool = false
 
     // Displayes the (optional) title.
@@ -361,19 +361,7 @@ import UIKit
         didSet {
             if isSelected {
                 fillLayer.opacity = 1
-                /*
-                 Selecting: listen to animation did stop to end recording session
-                 */
-                let keyPath = "transform"
-                let transformAnim = CABasicAnimation(keyPath: keyPath)
-                transformAnim.fromValue = fillLayer.transform
-                transformAnim.toValue = CATransform3DIdentity
-                if recordingEnabled {
-                    transformAnim.delegate = self
-                }
                 fillLayer.transform = CATransform3DIdentity
-
-                fillLayer.add(transformAnim, forKey: keyPath)
 
                 if overdrawFill {
                     frameLayer.strokeColor = tintColor.cgColor
@@ -381,7 +369,19 @@ import UIKit
                     frameLayer.strokeColor = selectedBorderColor.cgColor
                 }
             } else {
-                fillLayer.transform = CATransform3DMakeScale(shrinkingFactor, shrinkingFactor, 1)
+                /*
+                 Deselecting: listen to `animationDidStop` to end recording session:
+                 */
+                let keyPath = "transform"
+                let toValue = CATransform3DMakeScale(shrinkingFactor, shrinkingFactor, 1)
+                let transformAnim = CABasicAnimation(keyPath: keyPath)
+                transformAnim.fromValue = fillLayer.transform
+                transformAnim.toValue = toValue
+                if recordingEnabled {
+                    transformAnim.delegate = self
+                }
+                fillLayer.transform = toValue
+                fillLayer.add(transformAnim, forKey: keyPath)
 
                 fillLayer.opacity = 0
                 frameLayer.strokeColor = normalBorderColor.cgColor
@@ -414,9 +414,9 @@ import UIKit
 
     override func tintColorDidChange() {
         super.tintColorDidChange()
-
-        // Update all color properties that depend on tint.
-        // (adjustedTintColor is computed)
+        /*
+         Update all color properties that depend on tint (adjustedTintColor is computed).
+         */
         fillLayer.fillColor = adjustedTintColor.cgColor
         if useAutomaticSelectedBorderColor {
             selectedBorderColor = adjustedTintColor
@@ -571,16 +571,12 @@ import UIKit
 extension Checkbox: CAAnimationDelegate {
 
     func animationDidStart(_ anim: CAAnimation) {
-
     }
 
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             let frames = ViewRecorder.endSession(for: self.superview!)
-            frames.exportSequence()
-
-            print("Did End Recording (\(frames.count) frames)")
+            frames.exportSequence(fileName: self.title)
         }
     }
 }

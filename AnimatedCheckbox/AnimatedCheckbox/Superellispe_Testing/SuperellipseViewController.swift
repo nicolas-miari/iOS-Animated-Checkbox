@@ -31,16 +31,4 @@ class SuperellipseViewController: UIViewController {
         shapeLayer.path = UIBezierPath.superellipse(in: shapeLayer.bounds, cornerRadius: 100).cgPath
         containerView.layer.addSublayer(shapeLayer)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
